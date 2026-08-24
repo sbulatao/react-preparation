@@ -18,6 +18,12 @@ export default function Posts() {
     setLoading(false);
   }
 
+  function onSearchKeyPress(key){
+    if(key === 'Enter'){
+      onSearch();
+    } 
+  }
+
   useEffect(() => {
     fetchPosts();
   }, []);
@@ -32,6 +38,7 @@ export default function Posts() {
             type="number"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
+            onKeyUp={(e) => onSearchKeyPress(e.key)} // e.key === 'Enter' && onSearch()
           />
           <button onClick={() => onSearch()}>Enter</button>
         </div>

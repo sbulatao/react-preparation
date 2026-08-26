@@ -7,7 +7,7 @@ export default function Home() {
     let navigate = useNavigate();
 
     async function getUsers(userId) {
-        const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users?=${userId}`);
+        const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users`);
         setUsers(data);
     }
 
